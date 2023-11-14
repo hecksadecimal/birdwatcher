@@ -1,0 +1,13 @@
+# Sensitive Info
+cookies.txt
+notifstate.json
+searchtags.json
+
+# Builds
+*.exe
+*.tar.gz
+*.tar.xz
+birdwatcher
+
+# Misc
+.bfg-report
