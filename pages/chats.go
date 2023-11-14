@@ -30,6 +30,9 @@ func setUnreadsLabel() {
 
 func updateCards() {
 	unreadChatsContainer.RemoveAll()
+	if cherp_api.NotifObject == nil {
+		return
+	}
 	chats := cherp_api.NotifObject["chats"].([]interface{})
 	for _, element := range chats {
 		chatURL := element.(map[string]interface{})["chatURL"].(string)

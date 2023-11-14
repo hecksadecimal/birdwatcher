@@ -17,9 +17,11 @@ func InitNotifs() {
 	if _, err := os.Stat("./notifstate.json"); err == nil {
 		Load("./notifstate.json", &NotifObject)
 	}
-	Unreads = len((NotifObject)["chats"].([]interface{}))
-	if Unreads > 0 {
-		TriggerUnreadNotification()
+	if NotifObject != nil {
+		Unreads = len((NotifObject)["chats"].([]interface{}))
+		if Unreads > 0 {
+			TriggerUnreadNotification()
+		}
 	}
 }
 
@@ -56,12 +58,6 @@ func GetNotifications() {
 			log.Println("New notification detected.")
 			TriggerUnreadNotification()
 		}
-	}
-	// Always have the systray icon red if there's at least one unread reply.
-	if len((NotifObject)["chats"].([]interface{})) > 0 {
-		//systray.SetTemplateIcon(icon.Notif, icon.Notif)
-	} else {
-		//systray.SetTemplateIcon(icon.Default, icon.Default)
 	}
 	if !cmp.Equal(o, NotifObject) {
 		// A simple comparison, if there's more unread chats than the last time we checked, trigger a notification.
