@@ -4,5 +4,5 @@ Website = "https://cherp.chat"
   Icon = "Icon.png"
   Name = "Birdwatcher"
   ID = "chat.cherp.birdwatcher"
-  Version = "1.0.0"
+  Version = "1.0.1"
   Build = 2
