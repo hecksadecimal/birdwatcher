@@ -60,6 +60,8 @@ func RegenerateSearches() {
 		queryLabelWidget := widget.NewLabel(element.Query)
 		queryLabelWidget.Wrapping = fyne.TextWrapBreak
 
+		var idx = index
+
 		cardWidget := widget.NewCard(
 			element.Title,
 			"",
@@ -67,7 +69,7 @@ func RegenerateSearches() {
 				queryLabelWidget,
 				container.NewHBox(
 					widget.NewButton("Delete", func() {
-						searchItems = deleteAtIndex(searchItems, index)
+						searchItems = deleteAtIndex(searchItems, idx)
 						SaveTagSearches()
 						updateSearchCount()
 						RegenerateSearches()
